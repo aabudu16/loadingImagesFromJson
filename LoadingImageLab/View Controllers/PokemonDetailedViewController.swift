@@ -26,6 +26,7 @@ class PokemonDetailedViewController: UIViewController {
         name.text = pokemon.name
         set.text = pokemon.set
         type.text = pokemon.types?.reduce("", ({$0 + $1}))
+        
         //weaknesses.text = pokemon.weaknesses![0].type
         ImageHelper.shared.fetchImage(urlImage: pokemon.imageUrlHiRes) { (result) in
             switch result{

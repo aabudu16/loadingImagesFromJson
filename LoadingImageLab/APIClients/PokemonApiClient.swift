@@ -14,17 +14,17 @@ struct PokemonApiClient{
     
     let pokemonURL = "https://api.pokemontcg.io/v1/cards"
     
-  func fetchData(complitionHandler: @escaping (Result<[Cards], AppError>)->()){
+  func fetchData(completionHandler: @escaping (Result<[Cards], AppError>)->()){
     NetworkManager.shared.fetchData(urlString: pokemonURL) { (result) in
         switch result{
         case .failure(let error):
-            complitionHandler(.failure(error))
+            completionHandler(.failure(error))
         case .success(let data):
             do{
                let pokemon = try JSONDecoder().decode(pokemonWrapper.self, from: data)
-                complitionHandler(.success(pokemon.cards))
+                completionHandler(.success(pokemon.cards))
             }catch{
-                complitionHandler(.failure(.noDataError))
+                completionHandler(.failure(.noDataError))
             }
         }
     }

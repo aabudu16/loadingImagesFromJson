@@ -13,7 +13,7 @@ class PokemonViewController: UIViewController {
     var pokemon = [Cards](){
         didSet{
             DispatchQueue.main.async {
-            self.pokemonTableView.reloadData()
+                self.pokemonTableView.reloadData()
             }
         }
     }
@@ -27,6 +27,7 @@ class PokemonViewController: UIViewController {
     }
     var userSearchString:String? = nil{
         didSet{
+            setResultCount()
             self.pokemonTableView.reloadData()
         }
     }
@@ -44,10 +45,28 @@ class PokemonViewController: UIViewController {
         }
     }
     
+    private func setResultCount(){
+        switch userSearchResult.count{
+        case pokemon.count:
+            if userSearchString != ""{
+                navigationItem.title = "You have \(userSearchResult.count) results"
+            }else{
+                navigationItem.title = "Pokemon Cards"
+            }
+        case 1:
+            navigationItem.title = "You have 1 result"
+        case 0:
+            navigationItem.title = "You have no results"
+        default:
+            navigationItem.title = "You have \(userSearchResult.count) results"
+        }
+    }
     func setupView(){
         pokemonTableView.delegate = self
         pokemonTableView.dataSource = self
         searchBar.delegate = self
+        navigationItem.title = "Pokemon Cards"
+        navigationController?.navigationBar.backgroundColor = .blue
     }
     func fetchPokemonData(){
         PokemonApiClient.shared.fetchData { (result) in
@@ -69,7 +88,7 @@ extension PokemonViewController: UITableViewDataSource{
         return 315
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-       return userSearchResult.count
+        return userSearchResult.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -84,7 +103,7 @@ extension PokemonViewController: UITableViewDataSource{
             case .success(let image):
                 
                 DispatchQueue.main.async {
-                     cell.pokemonImage.image = image
+                    cell.pokemonImage.image = image
                 }
             }
         }
