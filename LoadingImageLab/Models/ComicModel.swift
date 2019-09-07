@@ -8,8 +8,10 @@
 
 import Foundation
 
-struct Comics{
-    let num:String
+
+struct Comics:Codable{
+    let num:Int
     let title:String
     let img:String
 }
+

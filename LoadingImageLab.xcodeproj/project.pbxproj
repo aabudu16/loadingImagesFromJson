@@ -20,6 +20,9 @@
 		8503991D2321AE040083666A /* PokemonApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8503991C2321AE040083666A /* PokemonApiClient.swift */; };
 		8503991F2321AE4A0083666A /* ImageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8503991E2321AE4A0083666A /* ImageHelper.swift */; };
 		853E32C42322E78D00736A1D /* ComicModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853E32C32322E78D00736A1D /* ComicModel.swift */; };
+		853E32C62322EADC00736A1D /* ComicAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853E32C52322EADC00736A1D /* ComicAPIClient.swift */; };
+		853E32C82322EEED00736A1D /* ComicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853E32C72322EEED00736A1D /* ComicViewController.swift */; };
+		853E32CA2323084C00736A1D /* RandomNumberGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853E32C92323084C00736A1D /* RandomNumberGenerator.swift */; };
 		85421A2D2321BD320080AD41 /* PokemonDetailedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85421A2C2321BD320080AD41 /* PokemonDetailedViewController.swift */; };
 		85421A342321F9800080AD41 /* RandomUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85421A332321F9800080AD41 /* RandomUserViewController.swift */; };
 		85421A362321FBA00080AD41 /* RandomUserUITableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85421A352321FBA00080AD41 /* RandomUserUITableViewCell.swift */; };
@@ -57,6 +60,9 @@
 		8503991C2321AE040083666A /* PokemonApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonApiClient.swift; sourceTree = "<group>"; };
 		8503991E2321AE4A0083666A /* ImageHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageHelper.swift; sourceTree = "<group>"; };
 		853E32C32322E78D00736A1D /* ComicModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicModel.swift; sourceTree = "<group>"; };
+		853E32C52322EADC00736A1D /* ComicAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicAPIClient.swift; sourceTree = "<group>"; };
+		853E32C72322EEED00736A1D /* ComicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicViewController.swift; sourceTree = "<group>"; };
+		853E32C92323084C00736A1D /* RandomNumberGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomNumberGenerator.swift; sourceTree = "<group>"; };
 		85421A2C2321BD320080AD41 /* PokemonDetailedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonDetailedViewController.swift; sourceTree = "<group>"; };
 		85421A332321F9800080AD41 /* RandomUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomUserViewController.swift; sourceTree = "<group>"; };
 		85421A352321FBA00080AD41 /* RandomUserUITableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomUserUITableViewCell.swift; sourceTree = "<group>"; };
@@ -109,6 +115,7 @@
 				85421A2E2321BD3F0080AD41 /* View Controllers */,
 				85421A2F2321BD560080AD41 /* TableView Cell */,
 				850398F6232198B50083666A /* Main.storyboard */,
+				853E32C92323084C00736A1D /* RandomNumberGenerator.swift */,
 				85421A302321BD670080AD41 /* Models */,
 				85421A312321BD770080AD41 /* APIClients */,
 				85421A322321BD930080AD41 /* Helper Folder */,
@@ -135,6 +142,7 @@
 				85421A332321F9800080AD41 /* RandomUserViewController.swift */,
 				85421A2C2321BD320080AD41 /* PokemonDetailedViewController.swift */,
 				85421A3F23229A860080AD41 /* RandomUserDetailedViewController.swift */,
+				853E32C72322EEED00736A1D /* ComicViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -163,6 +171,7 @@
 			children = (
 				8503991C2321AE040083666A /* PokemonApiClient.swift */,
 				85421A392321FCCF0080AD41 /* RandomUserAPIClient.swift */,
+				853E32C52322EADC00736A1D /* ComicAPIClient.swift */,
 			);
 			path = APIClients;
 			sourceTree = "<group>";
@@ -279,7 +288,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				853E32C62322EADC00736A1D /* ComicAPIClient.swift in Sources */,
 				850399172321A62B0083666A /* NetworkManager.swift in Sources */,
+				853E32C82322EEED00736A1D /* ComicViewController.swift in Sources */,
 				85421A4023229A860080AD41 /* RandomUserDetailedViewController.swift in Sources */,
 				85421A382321FCBB0080AD41 /* RandomUserModel.swift in Sources */,
 				8503991B2321A9F50083666A /* PokemonModel.swift in Sources */,
@@ -289,6 +300,7 @@
 				853E32C42322E78D00736A1D /* ComicModel.swift in Sources */,
 				850399192321A68C0083666A /* AppError.swift in Sources */,
 				850398F5232198B50083666A /* PokemonViewController.swift in Sources */,
+				853E32CA2323084C00736A1D /* RandomNumberGenerator.swift in Sources */,
 				85421A342321F9800080AD41 /* RandomUserViewController.swift in Sources */,
 				850398F3232198B50083666A /* AppDelegate.swift in Sources */,
 				8503991D2321AE040083666A /* PokemonApiClient.swift in Sources */,

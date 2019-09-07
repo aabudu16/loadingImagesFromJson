@@ -357,19 +357,19 @@
             </objects>
             <point key="canvasLocation" x="2420.289855072464" y="99.776785714285708"/>
         </scene>
-        <!--View Controller-->
+        <!--Comic View Controller-->
         <scene sceneID="02e-mi-M7k">
             <objects>
-                <viewController id="m5Y-dY-OY8" sceneMemberID="viewController">
+                <viewController id="m5Y-dY-OY8" customClass="ComicViewController" customModule="LoadingImageLab" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="LBf-El-4yD">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wuE-fq-bf9">
-                                <rect key="frame" x="0.0" y="88" width="414" height="233"/>
+                                <rect key="frame" x="20" y="112" width="374" height="233"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="233" id="e17-Ui-y4K"/>
-                                    <constraint firstAttribute="width" constant="414" id="yRB-kV-tKb"/>
+                                    <constraint firstAttribute="width" constant="374" id="yRB-kV-tKb"/>
                                 </constraints>
                             </imageView>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yO8-0O-xJg">
@@ -389,31 +389,47 @@
                                     <constraint firstAttribute="width" constant="102" id="Fbd-A5-22k"/>
                                 </constraints>
                                 <state key="normal" title="Most recent"/>
+                                <connections>
+                                    <action selector="buttonAction:" destination="m5Y-dY-OY8" eventType="touchUpInside" id="weV-PA-EEe"/>
+                                </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BvV-ZO-wIU">
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BvV-ZO-wIU">
                                 <rect key="frame" x="280" y="726" width="102" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="102" id="GbE-zJ-QBg"/>
                                     <constraint firstAttribute="height" constant="30" id="UmU-Jt-p3d"/>
                                 </constraints>
                                 <state key="normal" title="Random"/>
+                                <connections>
+                                    <action selector="buttonAction:" destination="m5Y-dY-OY8" eventType="touchUpInside" id="iqT-Rc-ftS"/>
+                                </connections>
                             </button>
-                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="vbG-Jt-ZdW">
+                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="2000" translatesAutoresizingMaskIntoConstraints="NO" id="vbG-Jt-ZdW">
                                 <rect key="frame" x="160" y="463" width="94" height="29"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="94" id="Ab4-oo-rjf"/>
                                     <constraint firstAttribute="height" constant="29" id="wpI-7g-bvf"/>
                                 </constraints>
+                                <connections>
+                                    <action selector="stepperAction:" destination="m5Y-dY-OY8" eventType="valueChanged" id="BEI-Fm-hPO"/>
+                                </connections>
                             </stepper>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JMu-wM-tMi">
+                                <rect key="frame" x="160" y="415" width="94" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="HIF-sZ-9AF" firstAttribute="bottom" secondItem="BvV-ZO-wIU" secondAttribute="bottom" constant="57" id="8dp-8b-yKH"/>
                             <constraint firstItem="HIF-sZ-9AF" firstAttribute="trailing" secondItem="BvV-ZO-wIU" secondAttribute="trailing" constant="32" id="8jY-JJ-2WF"/>
-                            <constraint firstItem="yO8-0O-xJg" firstAttribute="top" secondItem="wuE-fq-bf9" secondAttribute="bottom" constant="45" id="AgF-LZ-8gs"/>
+                            <constraint firstItem="yO8-0O-xJg" firstAttribute="top" secondItem="wuE-fq-bf9" secondAttribute="bottom" constant="21" id="AgF-LZ-8gs"/>
                             <constraint firstItem="Ble-eS-Cvf" firstAttribute="leading" secondItem="HIF-sZ-9AF" secondAttribute="leading" constant="43" id="ClP-ja-aza"/>
                             <constraint firstItem="vbG-Jt-ZdW" firstAttribute="centerX" secondItem="HIF-sZ-9AF" secondAttribute="centerX" id="Lxa-ec-ajR"/>
-                            <constraint firstItem="wuE-fq-bf9" firstAttribute="top" secondItem="HIF-sZ-9AF" secondAttribute="top" id="jUt-iz-Nz1"/>
+                            <constraint firstItem="wuE-fq-bf9" firstAttribute="top" secondItem="HIF-sZ-9AF" secondAttribute="top" constant="24" id="jUt-iz-Nz1"/>
                             <constraint firstItem="wuE-fq-bf9" firstAttribute="centerX" secondItem="HIF-sZ-9AF" secondAttribute="centerX" id="oSk-NP-fgg"/>
                             <constraint firstItem="HIF-sZ-9AF" firstAttribute="bottom" secondItem="Ble-eS-Cvf" secondAttribute="bottom" constant="57" id="p0w-MV-vvf"/>
                             <constraint firstItem="vbG-Jt-ZdW" firstAttribute="top" secondItem="yO8-0O-xJg" secondAttribute="bottom" constant="67" id="u6z-M6-auG"/>
@@ -422,6 +438,12 @@
                         <viewLayoutGuide key="safeArea" id="HIF-sZ-9AF"/>
                     </view>
                     <navigationItem key="navigationItem" id="SAA-y9-5cP"/>
+                    <connections>
+                        <outlet property="comicImage" destination="wuE-fq-bf9" id="pWn-em-rZO"/>
+                        <outlet property="comicNumberlabel" destination="JMu-wM-tMi" id="NVV-gZ-v1A"/>
+                        <outlet property="comicStepper" destination="vbG-Jt-ZdW" id="dQR-QX-T5z"/>
+                        <outlet property="comicTextField" destination="yO8-0O-xJg" id="2ns-ni-LQF"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0e0-0A-WhL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
