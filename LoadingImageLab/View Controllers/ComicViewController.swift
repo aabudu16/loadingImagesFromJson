@@ -99,15 +99,6 @@ class ComicViewController: UIViewController {
             navigationItem.title = "\(randomNumber)"
         }
     }
-    
-    
-    //    @IBAction func textFieldEditingChanged(_ sender: UITextField) {
-    //
-    //        guard let text = comicTextField.text, let value = Int(text) else {
-    //            return
-    //        }
-    //        randomNumber = value
-    //    }
 }
 
 extension ComicViewController: UITextFieldDelegate{
@@ -116,8 +107,6 @@ extension ComicViewController: UITextFieldDelegate{
         guard let text = comicTextField.text, let value = Int(text) else {
             return false
         }
-        
-       
         fetchComicData(number: value)
         return true
     }
