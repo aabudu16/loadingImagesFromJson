@@ -35,6 +35,9 @@ struct Locations:Codable{
     let street:String
     let city:String
     let state:String
+    var fullAddress:String {
+        return "\(street) \(city) \(state)"
+    }
 }
 struct DOB:Codable{
     let age:Int

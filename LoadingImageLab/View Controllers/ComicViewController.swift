@@ -1,17 +1,11 @@
-//
-//  ComicViewController.swift
-//  LoadingImageLab
-//
-//  Created by Mr Wonderful on 9/6/19.
-//  Copyright © 2019 Mr Wonderful. All rights reserved.
-//
 
 import UIKit
 
+
 class ComicViewController: UIViewController {
-     @IBOutlet var comicNumberlabel: UILabel!
     @IBOutlet var comicImage: UIImageView!
-    @IBOutlet var comicTextField: UIView!
+    
+    @IBOutlet var comicTextField: UITextField!
     @IBOutlet var comicStepper: UIStepper!
     
     var randomNumber = RandomNumberGen.randomNumber(){
@@ -24,18 +18,33 @@ class ComicViewController: UIViewController {
     
     var mostRecent:Comics!
     var comic:Comics!{
-            didSet {
-                DispatchQueue.main.async {
-                    self.setImage()
-                }
+        didSet {
+            DispatchQueue.main.async {
+                
+                self.setImage()
             }
         }
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureTextField()
+        configureNavigationBar()
         fetchComicData(number: nil)
+        comicTextField.keyboardType = .numberPad
     }
     
-    func setImage(){
+    private func configureTextField(){
+        comicTextField.delegate = self
+        comicTextField.borderStyle = .bezel
+        comicTextField.adjustsFontSizeToFitWidth = true
+    }
+    
+    private func configureNavigationBar(){
+        navigationController?.navigationBar.backgroundColor = .gray
+        navigationItem.title = "Comics"
+    }
+    
+    private func setImage(){
         ImageHelper.shared.fetchImage(urlImage: comic.img) { (result) in
             switch result{
             case .failure(let error):
@@ -49,7 +58,7 @@ class ComicViewController: UIViewController {
         }
     }
     
-    func fetchComicData(number:Int?){
+    private func fetchComicData(number:Int?){
         ComicAPIClient.shared.fetchData(num: number) { (result) in
             switch result{
             case .failure(let error):
@@ -71,8 +80,10 @@ class ComicViewController: UIViewController {
         case 1:
             randomNumber = RandomNumberGen.randomNumber()
             fetchComicData(number: randomNumber)
-            comicNumberlabel.text = String(randomNumber)
             comicStepper.value = Double(randomNumber)
+            comicTextField.text = String(randomNumber)
+            navigationItem.title = "\(randomNumber)"
+            
         default:
             randomNumber = -1
         }
@@ -81,9 +92,34 @@ class ComicViewController: UIViewController {
     @IBAction func stepperAction(_ sender: UIStepper) {
         randomNumber = Int(sender.value)
         fetchComicData(number: randomNumber)
-        comicNumberlabel.text = String(Int(sender.value))
+        comicTextField.text = String(Int(sender.value))
+        if randomNumber == 0{
+            navigationItem.title = "No comic available"
+        }else{
+            navigationItem.title = "\(randomNumber)"
+        }
     }
     
+    
+    //    @IBAction func textFieldEditingChanged(_ sender: UITextField) {
+    //
+    //        guard let text = comicTextField.text, let value = Int(text) else {
+    //            return
+    //        }
+    //        randomNumber = value
+    //    }
 }
 
+extension ComicViewController: UITextFieldDelegate{
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        guard let text = comicTextField.text, let value = Int(text) else {
+            return false
+        }
+        
+       
+        fetchComicData(number: value)
+        return true
+    }
+}
 

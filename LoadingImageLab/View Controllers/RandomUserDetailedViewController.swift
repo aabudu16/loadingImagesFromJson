@@ -27,6 +27,7 @@ class RandomUserDetailedViewController: UIViewController {
         userName.text = user.name.convertFirstLetterOfNameToUpperCase()
         userAge.text = "\(user.dob.age) Years Old"
         userNumber.text = user.phone
+        userLocation.text = user.location.fullAddress
         
         userImage.layer.borderWidth = 2
         userImage.layer.masksToBounds = false
@@ -44,5 +45,4 @@ class RandomUserDetailedViewController: UIViewController {
             }
         }
     }
-
 }
